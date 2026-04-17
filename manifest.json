@@ -1,0 +1,33 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "icons/icon128.png",
+         "16": "icons/icon16.png",
+         "48": "icons/icon48.png"
+      },
+      "default_popup": "popup/popup.html"
+   },
+   "background": {
+      "service_worker": "background/service-worker.js",
+      "type": "module"
+   },
+   "content_scripts": [ {
+      "css": [ "content/content.css" ],
+      "js": [ "content/content.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_idle"
+   } ],
+   "description": "Detects confidently-written claims on any webpage and generates witty AI replies. Privacy-first, local AI, multiple personas, SPA+.",
+   "host_permissions": [ "http://localhost:8765/*", "https://gcvnkfxmdqvusnkwczrt.supabase.co/*" ],
+   "icons": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvZK5OFo1TbvmG++KKg+0FFJu5kOySH8nrSmYzyO26Dyp+9EaIhGOkncVWX7HI3+2MfHTrGlxWvD1ZIT7sHydLxJhQTAog1cfBtKVJdkX0TKIWslSX2Ap/6jMrWoMbKaWQCbhjdoJBmSykhVb6cp3upzExjBEsbrSpLPSC9YmITcFvCYNZuZjyh/cLaD/lM54SrYJtd0uXdakO5NI4xNq0zV1zJAQdMrznQKKfCRZ0v+fDpmfPqZv8Ekps5QXuSOyfs1J38yv3gSJAguUZxWyujcAhFoXmgCqZ+/9v5HTSR1Or72eNS3/dEbXj4EWt0zf3mCZ3buuvsQcBBLhvPAQmQIDAQAB",
+   "manifest_version": 3,
+   "name": "DeepHook Bait Layer",
+   "permissions": [ "activeTab", "storage", "scripting", "clipboardWrite" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.1.0"
+}

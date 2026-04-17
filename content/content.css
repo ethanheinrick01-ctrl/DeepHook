@@ -1,0 +1,11 @@
+/* content/content.css */
+/* Intentionally bare — sidebar uses shadow DOM for style isolation */
+
+#trollbox-sidebar-root {
+  all: initial;
+  position: fixed !important;
+  top: 80px !important;
+  right: 0 !important;
+  z-index: 2147483647 !important;
+  width: 320px !important;
+}

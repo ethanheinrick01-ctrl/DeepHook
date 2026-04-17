@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DeepHook Bait Layer</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div id="app">
+    <div class="header">🎣 DeepHook Bait Layer</div>
+
+    <div class="row">
+      <label>Status</label>
+      <span id="status-indicator">🔴 checking…</span>
+    </div>
+
+    <div class="row">
+      <label>Mode</label>
+      <div class="toggle-group">
+        <button class="toggle-btn" id="btn-local" data-mode="local">Local</button>
+        <button class="toggle-btn" id="btn-cloud" data-mode="cloud">Cloud</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <label>Persona</label>
+      <select id="persona-select">
+        <option value="dry_midwit_savant">dry_midwit_savant</option>
+        <option value="smug_oracle">smug_oracle</option>
+        <option value="calm_ghoul">calm_ghoul</option>
+        <option value="fake_sincere">fake_sincere</option>
+        <option value="absurdist">absurdist</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <label>Platform</label>
+      <select id="platform-select">
+        <option value="reddit">Reddit</option>
+        <option value="x">X / Twitter</option>
+        <option value="facebook">Facebook</option>
+        <option value="news">News / Blog</option>
+        <option value="web">Web (generic)</option>
+      </select>
+    </div>
+
+    <div class="row cloud-only" id="supabase-key-row" style="display:none">
+      <label>Supabase Key</label>
+      <input type="password" id="supabase-key" placeholder="anon key…" />
+    </div>
+
+    <div class="row">
+      <label>Auto</label>
+      <div class="toggle-group">
+        <button class="toggle-btn" id="btn-auto-off" data-auto="false">Off</button>
+        <button class="toggle-btn" id="btn-auto-on" data-auto="true">On</button>
+      </div>
+    </div>
+
+    <button id="save-btn">Save Settings</button>
+    <div id="save-msg" style="display:none; color:#4caf50;font-size:12px;text-align:center;margin-top:6px;">✓ Saved</div>
+  </div>
+  <script src="popup.js" type="module"></script>
+</body>
+</html>
