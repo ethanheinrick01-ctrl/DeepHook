@@ -17,8 +17,8 @@
       "matches": [ "\u003Call_urls>" ],
       "run_at": "document_idle"
    } ],
-   "description": "Detects confidently-written claims on any webpage and generates witty AI replies. Privacy-first, local AI, multiple personas, SPA+.",
-   "host_permissions": [ "http://localhost:8765/*", "https://gcvnkfxmdqvusnkwczrt.supabase.co/*" ],
+   "description": "Highlight text on any webpage and generate witty AI replies. Cloud-only, manual-only, privacy-first.",
+   "host_permissions": [ "https://gcvnkfxmdqvusnkwczrt.supabase.co/*" ],
    "icons": {
       "128": "icons/icon128.png",
       "16": "icons/icon16.png",
@@ -29,5 +29,5 @@
    "name": "DeepHook Bait Layer",
    "permissions": [ "activeTab", "storage", "scripting", "clipboardWrite" ],
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "1.1.0"
+   "version": "1.2.0"
 }

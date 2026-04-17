@@ -1,33 +1,32 @@
 # Privacy Policy
 
-**DeepHook Bait Layer** ("the Extension") operates entirely on your device. This privacy policy explains what data, if any, the Extension processes.
+**DeepHook Bait Layer** ("the Extension") is a cloud-only, manual-only Chrome extension. This privacy policy explains what data is processed.
 
-## Data Collection
+## How It Works
 
-The Extension does **not** collect, transmit, or store any personal data by default.
+The Extension operates in **manual mode only**. Nothing is scanned or sent automatically. Generation only happens when you:
 
-### Local Mode (default)
-When running in Local mode, all processing happens locally on your machine:
-- Page content is analyzed locally in your browser
-- AI responses are generated using your local AI engine (Ollama)
-- No data is sent to external servers
+1. Highlight text on a webpage
+2. Click "Generate Bait" in the tooltip
 
-### Cloud Mode (optional)
-When Cloud mode is enabled with a Supabase URL/key:
-- AI responses are generated via your configured Supabase project
-- You control your Supabase project and its data
-- No analytics, tracking, or third-party services are used
+## Data Flow
+
+When you click generate:
+- The highlighted text and the current page URL are sent to the configured Supabase project (`gcvnkfxmdqvusnkwczrt.supabase.co`), which runs the generation engine in the cloud.
+- Generated responses are returned to the extension and displayed in the draggable tooltip.
+- No generation runs on your computer. No automatic scanning ever occurs.
+
+You control the Supabase project and its data. No analytics or third-party trackers are used.
 
 ## Permissions Used
 
 | Permission | Why |
 |------------|-----|
-| `activeTab` | To read page content when you click the extension |
-| `storage` | To save your settings and preferences locally |
+| `activeTab` | To read highlighted text when you trigger generation |
+| `storage` | To save your settings (persona, platform, Supabase key) locally |
 | `scripting` | To inject the content script into web pages |
 | `clipboardWrite` | To copy generated responses to your clipboard |
-| `http://localhost:8765/*` | To communicate with your local Bait Engine panel (local mode only) |
-| `https://gcvnkfxmdqvusnkwczrt.supabase.co/*` | To communicate with your Supabase project (cloud mode only) |
+| `https://gcvnkfxmdqvusnkwczrt.supabase.co/*` | To communicate with the Supabase cloud engine |
 
 ## Contact
 

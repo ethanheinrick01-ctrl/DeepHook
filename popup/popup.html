@@ -11,15 +11,7 @@
 
     <div class="row">
       <label>Status</label>
-      <span id="status-indicator">🔴 checking…</span>
-    </div>
-
-    <div class="row">
-      <label>Mode</label>
-      <div class="toggle-group">
-        <button class="toggle-btn" id="btn-local" data-mode="local">Local</button>
-        <button class="toggle-btn" id="btn-cloud" data-mode="cloud">Cloud</button>
-      </div>
+      <span id="status-indicator">☁️ Cloud mode</span>
     </div>
 
     <div class="row">
@@ -44,17 +36,13 @@
       </select>
     </div>
 
-    <div class="row cloud-only" id="supabase-key-row" style="display:none">
+    <div class="row">
       <label>Supabase Key</label>
       <input type="password" id="supabase-key" placeholder="anon key…" />
     </div>
 
-    <div class="row">
-      <label>Auto</label>
-      <div class="toggle-group">
-        <button class="toggle-btn" id="btn-auto-off" data-auto="false">Off</button>
-        <button class="toggle-btn" id="btn-auto-on" data-auto="true">On</button>
-      </div>
+    <div class="hint">
+      Highlight text on any page to generate bait. Cloud-only — engine runs on Supabase, not your computer.
     </div>
 
     <button id="save-btn">Save Settings</button>
