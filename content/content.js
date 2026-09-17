@@ -495,6 +495,7 @@
   let isGenerating = false;
   let currentClaim = null;
   let rescanTimer = null;
+  let contentRescanTimer = null;
   let sidebar = null;
   let initialized = false;
 
@@ -631,11 +632,15 @@
     let lastUrl = location.href;
     const urlObserver = new MutationObserver(() => {
       if (location.href !== lastUrl) {
+        // Real SPA navigation — rescan promptly.
         lastUrl = location.href;
         scheduleRescan();
-        return;
+      } else {
+        // Same URL, DOM just mutated (infinite scroll, live updates). Firing on
+        // every mutation re-scans the whole DOM continuously and hammers the
+        // engine. Debounce heavily so we only rescan once mutations settle.
+        scheduleContentRescan();
       }
-      scheduleRescan();
     });
     urlObserver.observe(document.body, {
       childList: true, subtree: true,
@@ -645,7 +650,13 @@
 
   function scheduleRescan() {
     clearTimeout(rescanTimer);
+    clearTimeout(contentRescanTimer);
     rescanTimer = setTimeout(scanAndGenerate, 200);
+  }
+
+  function scheduleContentRescan() {
+    clearTimeout(contentRescanTimer);
+    contentRescanTimer = setTimeout(scanAndGenerate, 1500);
   }
 
   function scanAndGenerate() {

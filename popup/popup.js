@@ -3,6 +3,20 @@ import { getSettings, setSetting } from '../lib/storage.js';
 
 const $ = id => document.getElementById(id);
 
+// Legacy persona ids (v1.1.0 and earlier) → real engine persona names.
+// Older builds shipped short names the engine never recognized, so it
+// silently fell back to dry_midwit_savant. Map saved values forward.
+const LEGACY_PERSONA_MAP = {
+  smug_oracle: 'smug_moron_oracle',
+  calm_ghoul: 'calm_unbothered_ghoul',
+  fake_sincere: 'fake_sincere_questioner',
+  absurdist: 'absurdist_accelerator',
+};
+
+function normalizePersona(value) {
+  return LEGACY_PERSONA_MAP[value] || value || 'dry_midwit_savant';
+}
+
 async function init() {
   const settings = await getSettings();
 
@@ -38,7 +52,7 @@ async function init() {
   }
 
   // ── Dropdowns ───────────────────────────────────────────────────────────────
-  $('persona-select').value = settings.persona || 'dry_midwit_savant';
+  $('persona-select').value = normalizePersona(settings.persona);
   $('platform-select').value = settings.platform || 'web';
   $('supabase-key').value = settings.supabaseAnonKey || '';
 
